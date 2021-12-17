@@ -3,6 +3,7 @@
 //  Salah
 //
 //  Created by Deniz Tezcan on 17/12/2021.
+//  Copyright (c) 2021 Tezcan IT Solutions BV. All rights reserved.
 //
 
 import Foundation

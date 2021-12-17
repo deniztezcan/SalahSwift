@@ -32,8 +32,19 @@
                     <view key="view" contentMode="scaleToFill" id="chZ-2m-JWd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrayerTimesBG" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O2c-K4-nhb">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Nnt-n0-UWK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="O2c-K4-nhb" firstAttribute="top" secondItem="Nnt-n0-UWK" secondAttribute="top" id="3Xg-SB-Swd"/>
+                            <constraint firstItem="Nnt-n0-UWK" firstAttribute="bottom" secondItem="O2c-K4-nhb" secondAttribute="bottom" id="gAf-em-G1b"/>
+                            <constraint firstItem="Nnt-n0-UWK" firstAttribute="trailing" secondItem="O2c-K4-nhb" secondAttribute="trailing" id="mbV-XI-Wwk"/>
+                            <constraint firstItem="O2c-K4-nhb" firstAttribute="leading" secondItem="Nnt-n0-UWK" secondAttribute="leading" id="rwl-Bv-uGJ"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Prayer times" image="clock" catalog="system" id="aaa-hN-77x"/>
                 </viewController>
@@ -62,6 +73,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="PrayerTimesBG" width="652" height="960"/>
         <image name="clock" catalog="system" width="128" height="121"/>
         <image name="moon" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">

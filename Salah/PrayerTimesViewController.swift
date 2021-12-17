@@ -3,6 +3,7 @@
 //  Salah
 //
 //  Created by Deniz Tezcan on 17/12/2021.
+//  Copyright (c) 2021 Tezcan IT Solutions BV. All rights reserved.
 //
 
 import Foundation
@@ -17,14 +18,29 @@ class PrayerTimesViewController: UIViewController, CLLocationManagerDelegate  {
     let locationManager = CLLocationManager()
     var city = ""
     
+    @IBOutlet weak var fajrLabel: UILabel!
+    @IBOutlet weak var sunriseLabel: UILabel!
+    @IBOutlet weak var dhuhrLabel: UILabel!
+    @IBOutlet weak var asrLabel: UILabel!
+    @IBOutlet weak var maghribLabel: UILabel!
+    @IBOutlet weak var ishaLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initLocationManager()
         self.prayerKit.calculationMethod = .Makkah
         self.prayerKit.outputFormat = .Time24
-        print(self.prayerKit.getPrayerTimes())
-//        Optional([Salah.AKPrayerTime.TimeNames.Asr: "14:12", Salah.AKPrayerTime.TimeNames.Sunrise: "08:46", Salah.AKPrayerTime.TimeNames.Fajr: "06:35", Salah.AKPrayerTime.TimeNames.Dhuhr: "12:37", Salah.AKPrayerTime.TimeNames.Isha: "17:57", Salah.AKPrayerTime.TimeNames.Maghrib: "16:27", Salah.AKPrayerTime.TimeNames.Sunset: "16:27"])
-//        times[.Fajr]
+        handlePrayerTimes()
+    }
+    
+    func handlePrayerTimes(){
+        let times = self.prayerKit.getPrayerTimes()
+        fajrLabel.text = (times![.Fajr] as! String)
+        sunriseLabel.text = (times![.Sunrise] as! String)
+        dhuhrLabel.text = (times![.Dhuhr] as! String)
+        asrLabel.text = (times![.Asr] as! String)
+        maghribLabel.text = (times![.Maghrib] as! String)
+        ishaLabel.text = (times![.Isha] as! String)
     }
     
     func initLocationManager(){
@@ -48,7 +64,7 @@ class PrayerTimesViewController: UIViewController, CLLocationManagerDelegate  {
         CLGeocoder().reverseGeocodeLocation(self.location!, completionHandler: {(placemarks, error) -> Void in
             self.city = (placemarks?.first?.locality)!
             self.prayerKit = AKPrayerTime(lat: (self.location?.coordinate.latitude)!, lng: (self.location?.coordinate.longitude)!)
-            print(self.prayerKit.getPrayerTimes())
+            self.handlePrayerTimes()
         });
     }
 }

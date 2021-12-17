@@ -257,7 +257,7 @@ class AKPrayerTime {
     /// Set custom values for calculation parameters
     func setCustomParams(_ params:[Float]) {
         var cust = methodParams[CalculationMethod.Custom]!
-        var curr = methodParams[calculationMethod]!
+        let curr = methodParams[calculationMethod]!
         for i in 0..<5 {
             let j = params[i];
             cust[i] = (j == -1) ? curr[i] : j
@@ -457,8 +457,8 @@ class AKPrayerTime {
     
     // compute prayer times at given julian date
     private func computeTimes(_ times:[TimeNames: Double])->[TimeNames: Double] {
-        var t = dayPortion(times)
-        var params = methodParams[calculationMethod]!
+        let t = dayPortion(times)
+        let params = methodParams[calculationMethod]!
         
         let idk = params[0]
         let fajr:Double    = computeTime((180.0 - Double(idk)), t: t[.Fajr]!)
@@ -549,7 +549,7 @@ class AKPrayerTime {
         
         ttimes[TimeNames.Dhuhr] = ttimes[TimeNames.Dhuhr]! + (Double(dhuhrMinutes) / 60.0); //Dhuhr
         
-        var params = methodParams[calculationMethod]!
+        let params = methodParams[calculationMethod]!
         let val = params[1]
         
         if (val == 1.0) { // Maghrib
