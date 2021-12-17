@@ -22,6 +22,9 @@ class PrayerTimesViewController: UIViewController, CLLocationManagerDelegate  {
         initLocationManager()
         self.prayerKit.calculationMethod = .Makkah
         self.prayerKit.outputFormat = .Time24
+        print(self.prayerKit.getPrayerTimes())
+//        Optional([Salah.AKPrayerTime.TimeNames.Asr: "14:12", Salah.AKPrayerTime.TimeNames.Sunrise: "08:46", Salah.AKPrayerTime.TimeNames.Fajr: "06:35", Salah.AKPrayerTime.TimeNames.Dhuhr: "12:37", Salah.AKPrayerTime.TimeNames.Isha: "17:57", Salah.AKPrayerTime.TimeNames.Maghrib: "16:27", Salah.AKPrayerTime.TimeNames.Sunset: "16:27"])
+//        times[.Fajr]
     }
     
     func initLocationManager(){
