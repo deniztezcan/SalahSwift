@@ -35,6 +35,10 @@ class QiblaViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
             locationManager.startUpdatingHeading()
+        }else {
+            let alert = UIAlertController(title: "Whoops!", message: "You need to allow locations for this app to work.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
